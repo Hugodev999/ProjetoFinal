@@ -5,6 +5,9 @@ abstract public class  Pessoa {
 	private String matricula;
 	private String nomeCompleto;
 	private double dataNascimento;
+	private int dia;
+	private int mes;
+	private int ano;
 	
 	public  Pessoa(String matricula,String nomeCompleto,double dataNascimento) {
 		this.matricula = matricula;
@@ -56,7 +59,7 @@ abstract public class  Pessoa {
 		numeroGuardado = numeroGuardado - mes;
 		numeroGuardado = numeroGuardado * 10000;
 		numeroTransformado = (int) numeroGuardado;
-		ano = numeroTransformado;
+		ano = numeroTransformado + 1;
 		
 		//verificando as condiçoes para ver se estar correto
 		if(dia > 30 || dia < 0 || mes > 12 || mes < 0 || ano >= 2026 || ano < 1900) {
@@ -64,6 +67,9 @@ abstract public class  Pessoa {
 		}else {
 			System.out.println("Data de nascimento valido");
 			this.dataNascimento = dataNascimento;
+			this.dia = dia;
+			this.mes = mes;
+			this.ano = ano;
 		}
 	}
 	
@@ -77,6 +83,12 @@ abstract public class  Pessoa {
 	
 	public double getDataNascimento() {
 		return dataNascimento;
+	}
+	
+	public void exibirDados() {
+		System.out.println("Nome: "+ nomeCompleto);
+		System.out.println("Data de nascimento: "+ dia + "/" + mes + "/" + ano);
+		System.out.println("Matricula: "+ matricula);
 	}
 	
 }
